@@ -24,12 +24,20 @@ const connectionRoutes = require("./routes/connectionRoutes");
 const mentorApplicationRoutes = require("./routes/mentorApplicationRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const User = require("./models/User");
+const aiRoutes = require("./routes/aiRoutes");
+const aiController = require('./controllers/aiController');
+const upload = require('./middleware/upload'); // Assumes you have multer setup here for file parsing
+
+// Create the endpoint route
+// Remove the old app.post line and replace it with this:
+app.use('/api/ai', aiRoutes);
 // Home Route
 app.get("/", (req, res) => {
   res.send("Aspira API Running");
 });
 
 // API Routes
+app.use("/api/ai", aiRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/mentor", mentorRoutes);
 app.use("/api/lostfound", lostFoundRoutes);
