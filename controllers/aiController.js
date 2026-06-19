@@ -28,7 +28,7 @@ exports.summarizeResume = async (req, res) => {
 
     // 3. Post the form payload out to your Python service running on port 5005
     const pythonResponse = await axios.post(
-      "http://127.0.0.1:5005/summarize",
+      "https://srikapil-aspira-ai.hf.space/summarize",
       form,
       {
         headers: {
